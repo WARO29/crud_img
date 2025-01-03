@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +13,11 @@
     <div class="container">
         <h1 class="text-center text-secondary font-weight-bold p-5">Crud de imagenes en PHP y Mysql</h1>
         <!-- Button trigger modal -->
+        <?php
+            require "modelo/conexion.php";
+            require "controlador/registrar.php";
+            $sql = $conexion->query("select * from img");
+        ?>
         <button type="button" class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Subir archivo
         </button>
@@ -25,13 +31,9 @@
                     </div>
                     <div class="modal-body">
                         <form action="" method="post" enctype="multipart/form-data">
-                            <input type="file" class="form-control" name="imagen" id="">
+                            <input type="file" class="form-control mb-2" name="imagen" id="">
                             <input type="submit" value="Registrar" name="btnregistrar" class="form-control btn btn-success">
                         </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -39,11 +41,6 @@
         <div class="row">
             <div class="col-12">
                 <table class="table table-hover table-stripped table-responsive">
-
-                    <?php
-                    require "modelo/conexion.php";
-                    $sql = $conexion->query("select * from img");
-                    ?>
 
                     <thead class="table-dark">
                         <tr>
@@ -58,7 +55,7 @@
                         ?>
                             <tr>
                                 <th scope="row"><?= $datos->idimg ?></th>
-                                <td>...</td>
+                                <td><img src="<?= $datos->foto ?>" width="80" alt=""></td>
                                 <td>
                                     <a href="" class="btn btn-warning">Editar</a>
                                     <a href="" class="btn btn-danger">Eliminar</a>
