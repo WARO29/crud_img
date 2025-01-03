@@ -1,7 +1,7 @@
 <?php
 
 if(!empty($_POST["btnregistrar"])){
-    //echo "<div class='alert alert-info'>Boton Presionado</div>";
+    //echo "<div class='alert alert-inf-o'>Boton Presionado</div>";
     $imagen=$_FILES["imagen"]["tmp_name"]; //el tmp_name es para obtener el nombre del archivo temporal
     // y el imagen es el nombre o name del control input de tipo file
 
